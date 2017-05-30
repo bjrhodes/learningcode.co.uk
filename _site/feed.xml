@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>http://localhost:4000/</link>
+    <description></description>
+    <pubDate>Tue, 30 May 2017 10:46:17 +0100</pubDate>
+    
+      <item>
+        <title>Programming Basics - variables, operators and functions</title>
+        <link>http://localhost:4000/2017/05/30/programming-basics.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/05/30/programming-basics.html</guid>
+        <description>&lt;h3 id=&quot;a-program-statement&quot;&gt;A Program Statement&lt;/h3&gt;
+
+&lt;p&gt;A statement on a program is simply a piece of code that causes an action. Usually, a statement is a line of code. For example:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;console.log('Some message');
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Causes “Some message” to be logged to the console. Or&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;x = y + 5;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Will cause a “variable” &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; to have a value equal to the variable &lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt; plus 5.&lt;/p&gt;
+
+&lt;p&gt;Programming then, is simply the act of putting statements together in such an order that the computer will output a desired result. This is harder than it first appears, as computers are thoroughly stupid, and thoroughly obedient. Whatever you tell them to do, will be done, whether it is beneficial to your program or not. The art of programming is in undestanding a problem to the level that you can express it to a computer at the simplest level. This comes through consistent practice. In this assignment we are more concerned with the mechanics of programming and the tools available to help you express those instructions.&lt;/p&gt;
+
+&lt;h3 id=&quot;program-variables&quot;&gt;Program variables&lt;/h3&gt;
+
+&lt;p&gt;When developing a program, the programmer is often simply shuffling data around from one form to another. It is therefore convenient to have a way of storing and representing data inside the program. This is achieved using “variables”. A variable is simply a label, any label, given to a piece of data you’re working with. For example if a programmer wanted to write a simple statement to output a persoinalised greeting, it might look something like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var name = 'Mr McBlokeFace';
+console.log(&quot;Hello &quot; + name);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The variable &lt;code class=&quot;highlighter-rouge&quot;&gt;username&lt;/code&gt; is simply a label to hold the data. The program would work the same if it were written:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var person = 'Mr McBlokeFace';
+console.log(&quot;Hello &quot; + person);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var x = 'Mr McBlokeFace';
+console.log(&quot;Hello &quot; + x);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;However, it is always preferable to use a name which expresses your intent to the programmers who will work with your code after you are finished.&lt;/p&gt;
+
+&lt;p&gt;In Javascript, variables must be declared before they can be used. This is achieved using the special language keyword &lt;code class=&quot;highlighter-rouge&quot;&gt;var&lt;/code&gt; as in the example above. You can assign and declare a variable at the same time, or you can simply declare an empty variable for future use. For example:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// declare only
+var username;
+
+// declare and assign
+var username = &quot;Some username&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Variables are assigned values using the &lt;code class=&quot;highlighter-rouge&quot;&gt;=&lt;/code&gt; operator, as in &lt;code class=&quot;highlighter-rouge&quot;&gt;x = 5&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;name = 'Barry'&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;newThing = oldThing&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;data-and-variable-types&quot;&gt;Data and variable types&lt;/h3&gt;
+
+&lt;p&gt;In the real world, you deal with differing types of data all the time and your brain (usually) knows how to deal with them intrinsically. For example, you know that numbers can be added, and you can do this mentally with varying degrees of accuracy, however if I told you my phone number, you would also know that adding it to another number, whilst possible, is likely to be nonsensical.&lt;/p&gt;
+
+&lt;p&gt;Computers do not have this implicit knowledge, and so need to be told what form a piece of data is. We achieve this with the concept of “types”. Javascript as a language uses a fairly typical set of types. These are:&lt;/p&gt;
+
+&lt;h4 id=&quot;number&quot;&gt;Number&lt;/h4&gt;
+
+&lt;p&gt;When using whole numbers (integers),  for example &lt;code class=&quot;highlighter-rouge&quot;&gt;4&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;1234512597&lt;/code&gt;, Numbers are used as in everyday life, although due to memory constraints they do have an upper and lower limit. When numbers contain decimal components though, for example &lt;code class=&quot;highlighter-rouge&quot;&gt;3.14159265359&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;2.71828&lt;/code&gt;, they are similar to numbers used in everyday maths, but due to how they are represented in memory, they are not always as accurate as one would expect. Javascript stores all numbers as floating point representations, which is beyond the scope if this assignment. You should know though, that any functionality depending on decimal point arithmetic should be thoroughly tested for accuracy.&lt;/p&gt;
+
+&lt;h4 id=&quot;string&quot;&gt;String&lt;/h4&gt;
+
+&lt;p&gt;A string is any series of characters. For example &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;Hello, Barry&quot;&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;01208 73100&quot;&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;☠💩L&quot;&lt;/code&gt;. Strings can contain any characters that the computer can represent and are used for storing names, addresses and any written content. Note that numbers can often be stored in memory as strings, and will need conversion to integers or floats before any mathematical operations can be carried out, to a computer &lt;code class=&quot;highlighter-rouge&quot;&gt;5&lt;/code&gt; is not the same as &lt;code class=&quot;highlighter-rouge&quot;&gt;'5'&lt;/code&gt;. In examples here, string will be written in quote marks &lt;code class=&quot;highlighter-rouge&quot;&gt;'like this'&lt;/code&gt; or double quotes &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;like this&quot;&lt;/code&gt;. Javascript has no preference between the two, so long as the opening and closing quotes match.&lt;/p&gt;
+
+&lt;h4 id=&quot;boolean&quot;&gt;Boolean&lt;/h4&gt;
+
+&lt;p&gt;This type will always be either &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;. These are more useful than they first apper when it comes to program flow and you will come across them often.&lt;/p&gt;
+
+&lt;h4 id=&quot;null&quot;&gt;Null&lt;/h4&gt;
+
+&lt;p&gt;This is a special type, used to represent nothing of any type.&lt;/p&gt;
+
+&lt;h4 id=&quot;undefined&quot;&gt;Undefined&lt;/h4&gt;
+
+&lt;p&gt;Another special type. This is what you receive when you try to reference a variable that has not been declared yet. The underlying engine does not have any reference to the variable you are looking for and so returns &lt;code class=&quot;highlighter-rouge&quot;&gt;Undefined&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;object&quot;&gt;Object&lt;/h4&gt;
+
+&lt;p&gt;These also exist, more on these in future assignments!&lt;/p&gt;
+
+&lt;h4 id=&quot;array&quot;&gt;Array&lt;/h4&gt;
+
+&lt;p&gt;These also exist, more on these in future assignments!&lt;/p&gt;
+
+&lt;h3 id=&quot;operators-available&quot;&gt;Operators available&lt;/h3&gt;
+
+&lt;p&gt;This is a short list of common operators that you may find in use in Javascript. It is not exhaustive, but it is a powerful set of the available commands available to you.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Operator&lt;/th&gt;
+      &lt;th&gt;Purpose&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;=&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Used for assigning, as in &lt;code class=&quot;highlighter-rouge&quot;&gt;x = 8&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;you = 'awesome'&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;+&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Used for mathematical addition, and also string concatenation. For example &lt;code class=&quot;highlighter-rouge&quot;&gt;7 + 3&lt;/code&gt; will yield &lt;code class=&quot;highlighter-rouge&quot;&gt;10&lt;/code&gt;, where &lt;code class=&quot;highlighter-rouge&quot;&gt;'hello' + 'Barry' will yield &lt;/code&gt;helloBarry`.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Used for mathematical subtraction&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;*&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Used for mathematical multiplication (&lt;code class=&quot;highlighter-rouge&quot;&gt;5 * 3&lt;/code&gt; yields &lt;code class=&quot;highlighter-rouge&quot;&gt;15&lt;/code&gt;).&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Used for mathematical division (&lt;code class=&quot;highlighter-rouge&quot;&gt;10 / 5&lt;/code&gt; yields &lt;code class=&quot;highlighter-rouge&quot;&gt;2&lt;/code&gt;).&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Used to calculate the modulus (or remainder) of a division. For example &lt;code class=&quot;highlighter-rouge&quot;&gt;10 % 3&lt;/code&gt; yields &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt;, where &lt;code class=&quot;highlighter-rouge&quot;&gt;15 % 3&lt;/code&gt; yields &lt;code class=&quot;highlighter-rouge&quot;&gt;0&lt;/code&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;++&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Increment, will add one to a variables value. For example&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;x = 5;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;x++; // yields 6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;x++; // yields 7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Decrement, will subtract one from a variables value. As in &lt;code class=&quot;highlighter-rouge&quot;&gt;x--&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;===&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Equality test. Will yield true if two operands are equal. As in&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;var x = 5;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;x === 5; // yields true&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;x = 8;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;x === 5; // yields false&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;!==&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Not equal. Will yield false if two operands are equal.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Greater than&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;=&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Greater than or equal to&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Less than&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;=&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Less than or equal to&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Logical “and”, used for determining if multiple operands are all true. For example:&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;x = true;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;y = true;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;x &amp;amp;&amp;amp; y; // yields true&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;y = false;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;x &amp;amp;&amp;amp; y; // yields false&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;!&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Logical “Not” operator. Will reverse the boolean value of something. For example:&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;x = true;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;y = !x; // y is now set to false&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;||&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Logical “or”, used for determining if any operands from a set are true.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;functions&quot;&gt;Functions&lt;/h3&gt;
+
+&lt;p&gt;When a programmer wishes to reuse a set of statements, they can group them together into a function. This is simply a named set of statements, which take a known set of values to work with. The name can be anything you care to use, provided it does not conflict with existing function names.&lt;/p&gt;
+
+&lt;p&gt;When declaring a function, you can consider it as a contract between the function and the code that will be calling it. Your function is promising that, if you provide some specified parameters, it will carry out some specified operation. Sometimes, functions will need return a value on completion, sometimes they will not. For example, a function named &lt;code class=&quot;highlighter-rouge&quot;&gt;addNumbers&lt;/code&gt; is likely to return the product of that addition back to the caller. Whereas a function &lt;code class=&quot;highlighter-rouge&quot;&gt;console.log&lt;/code&gt; is concerned solely with outputting data to the user, and may not return anything to the program that called it.&lt;/p&gt;
+
+&lt;p&gt;Declaring functions can be done in a few ways in javascript, but the most common are the following two:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function addNumbers(x, y) {
+    return x + y;
+}
+var addNumbers = function(x, y) {
+    return x + y;
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Both of the above are identical in use. Both declare a function named &lt;code class=&quot;highlighter-rouge&quot;&gt;addNumbers&lt;/code&gt; and both have two “parameters” that they will accept: &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt;. Of note is the special language keyword &lt;code class=&quot;highlighter-rouge&quot;&gt;return&lt;/code&gt; which is used to send data back to the caller on completion of the function. This not only returns that value, but also signals the end of the function, so any statements after the return will not be executed.&lt;/p&gt;
+
+&lt;p&gt;As with variables, the names can be anything you desire, but should be easy to understand for future programmers. The naming of functions and their parts looks like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function someNameYouInvent(parameter, parameter) {
+    statement;
+    statement;
+    statement;
+    return statement or return value;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;function&lt;/code&gt; keyword is there to tell the computer that you are defining a function here, the name is used to refer to that function later on, and the parameters are used to pass data into the function when called. When you’re writing the function, you don’t know yet exactly what the data will be, but you can add comments to your code to indicate the type of data you expect, or make it clear through the functions name (in the example case, we expect Numbers).&lt;/p&gt;
+
+&lt;p&gt;(You should also really check that the data you have been given is within the expected range, to ensure your funciton operates as expected, although this is out of scope of this assignment.)&lt;/p&gt;
+
+&lt;p&gt;To muddy the waters, javascript also allows “anonymous” functions which have no name. These will come up later.&lt;/p&gt;
+
+&lt;p&gt;Once you have declared a function, you will want to “invoke” it. This means, call it and use it. To invoke the above function I would write &lt;code class=&quot;highlighter-rouge&quot;&gt;addNumbers(13, 5)&lt;/code&gt; which would yield &lt;code class=&quot;highlighter-rouge&quot;&gt;18&lt;/code&gt;; I could also write:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var x = 13;
+var y = 5;
+addNumbers(x, y);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;and achieve the same result, as the variable values will be passed in to the function.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 30 May 2017 00:00:00 +0100</pubDate>
+      </item>
+    
+  </channel>
+</rss>

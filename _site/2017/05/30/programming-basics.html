@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>Programming Basics - variables, operators and functions | Type Theme</title>
+	<meta name="description" content="A Program Statement">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-Frame-Options" content="sameorigin">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="http://localhost:4000/2017/05/30/programming-basics.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="Type Theme" href="http://localhost:4000/feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+	
+
+	<!-- Google Analytics -->
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<a href="/">
+			<img class="avatar" src="/img/avatar.png" alt=""/>
+		</a>
+		
+		<h1 class="site-title">
+			<a href="/">Type Theme</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/about/">
+					About
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			<!-- Social icons from Font Awesome, if enabled -->
+			
+
+
+<li>
+	<a href="mailto:barry@mymedialab.co.uk" title="Email">
+		<i class="fa fa-fw fa-envelope"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/bjrhodes/bjrhodes.github.io" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://twitter.com/beejrhodes" title="Follow on Twitter">
+		<i class="fa fa-fw fa-twitter"></i>
+	</a>
+</li>
+
+
+
+
+
+
+		</ul>
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('/')">
+    <h1 class="title">Programming Basics - variables, operators and functions</h1>
+    <p class="meta">
+    May 30, 2017
+    
+    </p>
+  </header>
+  <section class="post-content"><h3 id="a-program-statement">A Program Statement</h3>
+
+<p>A statement on a program is simply a piece of code that causes an action. Usually, a statement is a line of code. For example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>console.log('Some message');
+</code></pre>
+</div>
+
+<p>Causes “Some message” to be logged to the console. Or</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>x = y + 5;
+</code></pre>
+</div>
+
+<p>Will cause a “variable” <code class="highlighter-rouge">x</code> to have a value equal to the variable <code class="highlighter-rouge">y</code> plus 5.</p>
+
+<p>Programming then, is simply the act of putting statements together in such an order that the computer will output a desired result. This is harder than it first appears, as computers are thoroughly stupid, and thoroughly obedient. Whatever you tell them to do, will be done, whether it is beneficial to your program or not. The art of programming is in undestanding a problem to the level that you can express it to a computer at the simplest level. This comes through consistent practice. In this assignment we are more concerned with the mechanics of programming and the tools available to help you express those instructions.</p>
+
+<h3 id="program-variables">Program variables</h3>
+
+<p>When developing a program, the programmer is often simply shuffling data around from one form to another. It is therefore convenient to have a way of storing and representing data inside the program. This is achieved using “variables”. A variable is simply a label, any label, given to a piece of data you’re working with. For example if a programmer wanted to write a simple statement to output a persoinalised greeting, it might look something like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var name = 'Mr McBlokeFace';
+console.log("Hello " + name);
+</code></pre>
+</div>
+
+<p>The variable <code class="highlighter-rouge">username</code> is simply a label to hold the data. The program would work the same if it were written:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var person = 'Mr McBlokeFace';
+console.log("Hello " + person);
+</code></pre>
+</div>
+
+<p>or</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var x = 'Mr McBlokeFace';
+console.log("Hello " + x);
+</code></pre>
+</div>
+
+<p>However, it is always preferable to use a name which expresses your intent to the programmers who will work with your code after you are finished.</p>
+
+<p>In Javascript, variables must be declared before they can be used. This is achieved using the special language keyword <code class="highlighter-rouge">var</code> as in the example above. You can assign and declare a variable at the same time, or you can simply declare an empty variable for future use. For example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// declare only
+var username;
+
+// declare and assign
+var username = "Some username";
+</code></pre>
+</div>
+
+<p>Variables are assigned values using the <code class="highlighter-rouge">=</code> operator, as in <code class="highlighter-rouge">x = 5</code> or <code class="highlighter-rouge">name = 'Barry'</code> or <code class="highlighter-rouge">newThing = oldThing</code>.</p>
+
+<h3 id="data-and-variable-types">Data and variable types</h3>
+
+<p>In the real world, you deal with differing types of data all the time and your brain (usually) knows how to deal with them intrinsically. For example, you know that numbers can be added, and you can do this mentally with varying degrees of accuracy, however if I told you my phone number, you would also know that adding it to another number, whilst possible, is likely to be nonsensical.</p>
+
+<p>Computers do not have this implicit knowledge, and so need to be told what form a piece of data is. We achieve this with the concept of “types”. Javascript as a language uses a fairly typical set of types. These are:</p>
+
+<h4 id="number">Number</h4>
+
+<p>When using whole numbers (integers),  for example <code class="highlighter-rouge">4</code> or <code class="highlighter-rouge">1234512597</code>, Numbers are used as in everyday life, although due to memory constraints they do have an upper and lower limit. When numbers contain decimal components though, for example <code class="highlighter-rouge">3.14159265359</code> or <code class="highlighter-rouge">2.71828</code>, they are similar to numbers used in everyday maths, but due to how they are represented in memory, they are not always as accurate as one would expect. Javascript stores all numbers as floating point representations, which is beyond the scope if this assignment. You should know though, that any functionality depending on decimal point arithmetic should be thoroughly tested for accuracy.</p>
+
+<h4 id="string">String</h4>
+
+<p>A string is any series of characters. For example <code class="highlighter-rouge">"Hello, Barry"</code> or <code class="highlighter-rouge">"01208 73100"</code> or <code class="highlighter-rouge">"☠💩L"</code>. Strings can contain any characters that the computer can represent and are used for storing names, addresses and any written content. Note that numbers can often be stored in memory as strings, and will need conversion to integers or floats before any mathematical operations can be carried out, to a computer <code class="highlighter-rouge">5</code> is not the same as <code class="highlighter-rouge">'5'</code>. In examples here, string will be written in quote marks <code class="highlighter-rouge">'like this'</code> or double quotes <code class="highlighter-rouge">"like this"</code>. Javascript has no preference between the two, so long as the opening and closing quotes match.</p>
+
+<h4 id="boolean">Boolean</h4>
+
+<p>This type will always be either <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>. These are more useful than they first apper when it comes to program flow and you will come across them often.</p>
+
+<h4 id="null">Null</h4>
+
+<p>This is a special type, used to represent nothing of any type.</p>
+
+<h4 id="undefined">Undefined</h4>
+
+<p>Another special type. This is what you receive when you try to reference a variable that has not been declared yet. The underlying engine does not have any reference to the variable you are looking for and so returns <code class="highlighter-rouge">Undefined</code>.</p>
+
+<h4 id="object">Object</h4>
+
+<p>These also exist, more on these in future assignments!</p>
+
+<h4 id="array">Array</h4>
+
+<p>These also exist, more on these in future assignments!</p>
+
+<h3 id="operators-available">Operators available</h3>
+
+<p>This is a short list of common operators that you may find in use in Javascript. It is not exhaustive, but it is a powerful set of the available commands available to you.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">=</code></td>
+      <td>Used for assigning, as in <code class="highlighter-rouge">x = 8</code> or <code class="highlighter-rouge">you = 'awesome'</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">+</code></td>
+      <td>Used for mathematical addition, and also string concatenation. For example <code class="highlighter-rouge">7 + 3</code> will yield <code class="highlighter-rouge">10</code>, where <code class="highlighter-rouge">'hello' + 'Barry' will yield </code>helloBarry`.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">-</code></td>
+      <td>Used for mathematical subtraction</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">*</code></td>
+      <td>Used for mathematical multiplication (<code class="highlighter-rouge">5 * 3</code> yields <code class="highlighter-rouge">15</code>).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/</code></td>
+      <td>Used for mathematical division (<code class="highlighter-rouge">10 / 5</code> yields <code class="highlighter-rouge">2</code>).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">%</code></td>
+      <td>Used to calculate the modulus (or remainder) of a division. For example <code class="highlighter-rouge">10 % 3</code> yields <code class="highlighter-rouge">1</code>, where <code class="highlighter-rouge">15 % 3</code> yields <code class="highlighter-rouge">0</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">++</code></td>
+      <td>Increment, will add one to a variables value. For example</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>x = 5;</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>x++; // yields 6</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>x++; // yields 7</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">--</code></td>
+      <td>Decrement, will subtract one from a variables value. As in <code class="highlighter-rouge">x--</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">===</code></td>
+      <td>Equality test. Will yield true if two operands are equal. As in</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>var x = 5;</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>x === 5; // yields true</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>x = 8;</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>x === 5; // yields false</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">!==</code></td>
+      <td>Not equal. Will yield false if two operands are equal.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&gt;</code></td>
+      <td>Greater than</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&gt;=</code></td>
+      <td>Greater than or equal to</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&lt;</code></td>
+      <td>Less than</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&lt;=</code></td>
+      <td>Less than or equal to</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&amp;&amp;</code></td>
+      <td>Logical “and”, used for determining if multiple operands are all true. For example:</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>x = true;</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>y = true;</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>x &amp;&amp; y; // yields true</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>y = false;</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>x &amp;&amp; y; // yields false</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">!</code></td>
+      <td>Logical “Not” operator. Will reverse the boolean value of something. For example:</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>x = true;</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>y = !x; // y is now set to false</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">||</code></td>
+      <td>Logical “or”, used for determining if any operands from a set are true.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="functions">Functions</h3>
+
+<p>When a programmer wishes to reuse a set of statements, they can group them together into a function. This is simply a named set of statements, which take a known set of values to work with. The name can be anything you care to use, provided it does not conflict with existing function names.</p>
+
+<p>When declaring a function, you can consider it as a contract between the function and the code that will be calling it. Your function is promising that, if you provide some specified parameters, it will carry out some specified operation. Sometimes, functions will need return a value on completion, sometimes they will not. For example, a function named <code class="highlighter-rouge">addNumbers</code> is likely to return the product of that addition back to the caller. Whereas a function <code class="highlighter-rouge">console.log</code> is concerned solely with outputting data to the user, and may not return anything to the program that called it.</p>
+
+<p>Declaring functions can be done in a few ways in javascript, but the most common are the following two:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>function addNumbers(x, y) {
+    return x + y;
+}
+var addNumbers = function(x, y) {
+    return x + y;
+};
+</code></pre>
+</div>
+
+<p>Both of the above are identical in use. Both declare a function named <code class="highlighter-rouge">addNumbers</code> and both have two “parameters” that they will accept: <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code>. Of note is the special language keyword <code class="highlighter-rouge">return</code> which is used to send data back to the caller on completion of the function. This not only returns that value, but also signals the end of the function, so any statements after the return will not be executed.</p>
+
+<p>As with variables, the names can be anything you desire, but should be easy to understand for future programmers. The naming of functions and their parts looks like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>function someNameYouInvent(parameter, parameter) {
+    statement;
+    statement;
+    statement;
+    return statement or return value;
+}
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">function</code> keyword is there to tell the computer that you are defining a function here, the name is used to refer to that function later on, and the parameters are used to pass data into the function when called. When you’re writing the function, you don’t know yet exactly what the data will be, but you can add comments to your code to indicate the type of data you expect, or make it clear through the functions name (in the example case, we expect Numbers).</p>
+
+<p>(You should also really check that the data you have been given is within the expected range, to ensure your funciton operates as expected, although this is out of scope of this assignment.)</p>
+
+<p>To muddy the waters, javascript also allows “anonymous” functions which have no name. These will come up later.</p>
+
+<p>Once you have declared a function, you will want to “invoke” it. This means, call it and use it. To invoke the above function I would write <code class="highlighter-rouge">addNumbers(13, 5)</code> which would yield <code class="highlighter-rouge">18</code>; I could also write:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var x = 13;
+var y = 5;
+addNumbers(x, y);
+</code></pre>
+</div>
+
+<p>and achieve the same result, as the variable values will be passed in to the function.</p>
+</section>
+</article>
+
+<!-- Post navigation -->
+
+
+<!-- Disqus -->
+
+
+<!-- Muut -->
+
+    </div>
+    
+<script src="/js/katex_init.js"></script>
+
+
+
+<footer class="site-footer">
+	<p class="text">Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://rohanchandra.github.io/project/type/">Type Theme</a>
+</p>
+</footer>
+
+
+  </body>
+</html>
