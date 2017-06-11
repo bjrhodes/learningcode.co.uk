@@ -2,7 +2,7 @@
 <html class="no-js">
   <head>
 	<meta charset="utf-8">
-	<title>Programming Basics - variables, operators and functions | Type Theme</title>
+	<title>Programming Basics - variables, operators and functions | Learning Code</title>
 	<meta name="description" content="A Program Statement">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-Frame-Options" content="sameorigin">
@@ -17,7 +17,7 @@
 	<link rel="canonical" href="http://localhost:4000/2017/05/30/programming-basics.html">
 
 	<!-- RSS -->
-	<link rel="alternate" type="application/atom+xml" title="Type Theme" href="http://localhost:4000/feed.xml" />
+	<link rel="alternate" type="application/atom+xml" title="Learning Code" href="http://localhost:4000/feed.xml" />
 
 	<!-- Font Awesome -->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -46,7 +46,7 @@
 		</a>
 		
 		<h1 class="site-title">
-			<a href="/">Type Theme</a>
+			<a href="/">Learning Code</a>
 		</h1>
 	</div>
 	<nav class="site-nav">
@@ -71,12 +71,6 @@
 			<!-- Social icons from Font Awesome, if enabled -->
 			
 
-
-<li>
-	<a href="mailto:barry@mymedialab.co.uk" title="Email">
-		<i class="fa fa-fw fa-envelope"></i>
-	</a>
-</li>
 
 
 
@@ -144,15 +138,13 @@
 
 <p>A statement on a program is simply a piece of code that causes an action. Usually, a statement is a line of code. For example:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>console.log('Some message');
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Some message'</span><span class="p">);</span>
+    </code></pre></figure>
 
 <p>Causes “Some message” to be logged to the console. Or</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>x = y + 5;
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">x</span> <span class="o">=</span> <span class="nx">y</span> <span class="o">+</span> <span class="mi">5</span><span class="p">;</span>
+    </code></pre></figure>
 
 <p>Will cause a “variable” <code class="highlighter-rouge">x</code> to have a value equal to the variable <code class="highlighter-rouge">y</code> plus 5.</p>
 
@@ -162,36 +154,32 @@
 
 <p>When developing a program, the programmer is often simply shuffling data around from one form to another. It is therefore convenient to have a way of storing and representing data inside the program. This is achieved using “variables”. A variable is simply a label, any label, given to a piece of data you’re working with. For example if a programmer wanted to write a simple statement to output a persoinalised greeting, it might look something like this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var name = 'Mr McBlokeFace';
-console.log("Hello " + name);
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">'Mr McBlokeFace'</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Hello "</span> <span class="o">+</span> <span class="nx">name</span><span class="p">);</span>
+    </code></pre></figure>
 
 <p>The variable <code class="highlighter-rouge">username</code> is simply a label to hold the data. The program would work the same if it were written:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var person = 'Mr McBlokeFace';
-console.log("Hello " + person);
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="s1">'Mr McBlokeFace'</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Hello "</span> <span class="o">+</span> <span class="nx">person</span><span class="p">);</span>
+    </code></pre></figure>
 
 <p>or</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var x = 'Mr McBlokeFace';
-console.log("Hello " + x);
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="s1">'Mr McBlokeFace'</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Hello "</span> <span class="o">+</span> <span class="nx">x</span><span class="p">);</span>
+    </code></pre></figure>
 
 <p>However, it is always preferable to use a name which expresses your intent to the programmers who will work with your code after you are finished.</p>
 
 <p>In Javascript, variables must be declared before they can be used. This is achieved using the special language keyword <code class="highlighter-rouge">var</code> as in the example above. You can assign and declare a variable at the same time, or you can simply declare an empty variable for future use. For example:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>// declare only
-var username;
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="c1">// declare only</span>
+    <span class="kd">var</span> <span class="nx">username</span><span class="p">;</span>
 
-// declare and assign
-var username = "Some username";
-</code></pre>
-</div>
+    <span class="c1">// declare and assign</span>
+    <span class="kd">var</span> <span class="nx">username</span> <span class="o">=</span> <span class="s2">"Some username"</span><span class="p">;</span>
+    </code></pre></figure>
 
 <p>Variables are assigned values using the <code class="highlighter-rouge">=</code> operator, as in <code class="highlighter-rouge">x = 5</code> or <code class="highlighter-rouge">name = 'Barry'</code> or <code class="highlighter-rouge">newThing = oldThing</code>.</p>
 
@@ -385,27 +373,25 @@ var username = "Some username";
 
 <p>Declaring functions can be done in a few ways in javascript, but the most common are the following two:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>function addNumbers(x, y) {
-    return x + y;
-}
-var addNumbers = function(x, y) {
-    return x + y;
-};
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">function</span> <span class="nx">addNumbers</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kd">var</span> <span class="nx">addNumbers</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+    <span class="p">};</span>
+    </code></pre></figure>
 
 <p>Both of the above are identical in use. Both declare a function named <code class="highlighter-rouge">addNumbers</code> and both have two “parameters” that they will accept: <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code>. Of note is the special language keyword <code class="highlighter-rouge">return</code> which is used to send data back to the caller on completion of the function. This not only returns that value, but also signals the end of the function, so any statements after the return will not be executed.</p>
 
 <p>As with variables, the names can be anything you desire, but should be easy to understand for future programmers. The naming of functions and their parts looks like this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>function someNameYouInvent(parameter, parameter) {
-    statement;
-    statement;
-    statement;
-    return statement or return value;
-}
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">function</span> <span class="nx">someNameYouInvent</span><span class="p">(</span><span class="nx">parameter</span><span class="p">,</span> <span class="nx">parameter</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">statement</span><span class="p">;</span>
+        <span class="nx">statement</span><span class="p">;</span>
+        <span class="nx">statement</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nx">statement</span> <span class="nx">or</span> <span class="k">return</span> <span class="nx">value</span><span class="p">;</span>
+    <span class="p">}</span>
+    </code></pre></figure>
 
 <p>The <code class="highlighter-rouge">function</code> keyword is there to tell the computer that you are defining a function here, the name is used to refer to that function later on, and the parameters are used to pass data into the function when called. When you’re writing the function, you don’t know yet exactly what the data will be, but you can add comments to your code to indicate the type of data you expect, or make it clear through the functions name (in the example case, we expect Numbers).</p>
 
@@ -415,11 +401,10 @@ var addNumbers = function(x, y) {
 
 <p>Once you have declared a function, you will want to “invoke” it. This means, call it and use it. To invoke the above function I would write <code class="highlighter-rouge">addNumbers(13, 5)</code> which would yield <code class="highlighter-rouge">18</code>; I could also write:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var x = 13;
-var y = 5;
-addNumbers(x, y);
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="nx">addNumbers</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">);</span>
+    </code></pre></figure>
 
 <p>and achieve the same result, as the variable values will be passed in to the function.</p>
 </section>

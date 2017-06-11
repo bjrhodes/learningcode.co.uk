@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>If / Else | Learning Code</title>
+	<meta name="description" content="Introduction">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-Frame-Options" content="sameorigin">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="http://localhost:4000/2017/06/11/if-else.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="Learning Code" href="http://localhost:4000/feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+	
+
+	<!-- Google Analytics -->
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<a href="/">
+			<img class="avatar" src="/img/avatar.png" alt=""/>
+		</a>
+		
+		<h1 class="site-title">
+			<a href="/">Learning Code</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/about/">
+					About
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			<!-- Social icons from Font Awesome, if enabled -->
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/bjrhodes/bjrhodes.github.io" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://twitter.com/beejrhodes" title="Follow on Twitter">
+		<i class="fa fa-fw fa-twitter"></i>
+	</a>
+</li>
+
+
+
+
+
+
+		</ul>
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('/')">
+    <h1 class="title">If / Else</h1>
+    <p class="meta">
+    June 11, 2017
+    
+    </p>
+  </header>
+  <section class="post-content"><h3 id="introduction">Introduction</h3>
+
+<p>When writing a program, you rarely want the exact same outcome every time. Often you will receive some data, inspect the data and decide how to proceed based on that data. For example, in a web application you may like to apply different classes to odd and even table-rows to create visual distinctions. In a game you would want to take different actions if a player hits an obstacle than if they didn’t. We can fork programs into different operational paths using <code class="highlighter-rouge">if</code> statements.</p>
+
+<p>The use of <code class="highlighter-rouge">if</code> statements relies on boolean data types, switching paths depending on whether a condition is <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>.</p>
+
+<h3 id="the-syntax">The syntax</h3>
+
+<p>In javascript an <code class="highlighter-rouge">if</code> statement looks something like this:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">firstStatements</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">conditionalStatements</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">lastStatements</span><span class="p">;</span>
+    </code></pre></figure>
+
+<p>In this example, should the <code class="highlighter-rouge">condition</code> resolve to <code class="highlighter-rouge">true</code> the program would execute <code class="highlighter-rouge">firstStatements</code>, <code class="highlighter-rouge">conditionalStatements</code>, then <code class="highlighter-rouge">lastStatements</code>. However should condition resolve to <code class="highlighter-rouge">false</code> the program would only execute <code class="highlighter-rouge">firstStatements</code> and <code class="highlighter-rouge">lastStatements</code>, skipping over the conditional statements without executing them.</p>
+
+<p>Occasionally, you may like to take an alternative action, should the condition be false. In which case your code will look like this:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">firstStatements</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">conditionalStatements</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">alternativeStatements</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">lastStatements</span><span class="p">;</span>
+    </code></pre></figure>
+
+<p>In this example, should the <code class="highlighter-rouge">condition</code> evaluate to true the program would still execute <code class="highlighter-rouge">firstStatements</code>, <code class="highlighter-rouge">conditionalStatements</code>, then <code class="highlighter-rouge">lastStatements</code> as before. However, this time when the statement is false it will execute <code class="highlighter-rouge">firstStatements</code>, <code class="highlighter-rouge">alternativeStatements</code>, then <code class="highlighter-rouge">lastStatements</code>. As before, the first &amp; last statements are always executed, as they are outside of the flow.</p>
+
+<p>Sometimes, you may also need to chain multiple conditionals. For this we have <code class="highlighter-rouge">else if</code> used like this:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">firstStatements</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">conditionalStatements</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">secondCondition</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">differentStatements</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">alternativeStatements</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">lastStatements</span><span class="p">;</span>
+    </code></pre></figure>
+
+<p>In this example, the <code class="highlighter-rouge">differentStatements</code> will only be run if the first condition fails, and the second condition passes. The <code class="highlighter-rouge">alternativeStatements</code> will only run if <em>both</em> conditions fail.</p>
+
+<h3 id="some-real-world-examples">some real-world examples</h3>
+
+<h5 id="example-1">Example 1</h5>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'nameField'</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">str</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'...'</span><span class="p">;</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+<p>In example 1, we fetch a string value from an input field. We then compare the length of the string to a desired maximum display length (20) and if it exceeds that length, we cut it down to it’s first 18 characters, and append an ellipsis.</p>
+
+<h5 id="example-2">Example 2</h5>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">function</span> <span class="nx">addDelivery</span><span class="p">(</span><span class="nx">basket</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">basket</span><span class="p">.</span><span class="nx">getTotal</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">basket</span><span class="p">.</span><span class="nx">addItem</span><span class="p">(</span><span class="s1">'delivery'</span><span class="p">,</span> <span class="mf">10.00</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+<p>In this example, we add a delivery charge of £10.00 to someones shopping bill, only if the basket contains items totalling less than £100.</p>
+
+<h5 id="example-3">Example 3</h5>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">function</span> <span class="nx">fixHeader</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">elOffsetTop</span><span class="p">,</span> <span class="nx">scrollY</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">scrollY</span> <span class="o">&gt;=</span> <span class="nx">elOffsetTop</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">el</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s1">'fixed'</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">el</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'fixed'</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">scrollY</span> <span class="o">&lt;</span> <span class="nx">elOffsetTop</span> <span class="o">&amp;&amp;</span> <span class="nx">el</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s1">'fixed'</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">el</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s1">'fixed'</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+<p>In this example, a DOM element (<code class="highlighter-rouge">el</code>) has a class of <code class="highlighter-rouge">fixed</code> added or removed depending on the scroll position of the document.</p>
+
+<h5 id="example-5">Example 5</h5>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">function</span> <span class="nx">fizzBuzzNumber</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">str</span> <span class="o">+=</span> <span class="s1">'Fizz'</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">str</span> <span class="o">+=</span> <span class="s1">'Buzz'</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">str</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s1">''</span> <span class="o">+</span> <span class="nx">n</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+<p>In this function, the popular coding challenge <code class="highlighter-rouge">FizzBuzz</code> is solved using if / else statements. An integer <code class="highlighter-rouge">Number</code> is supplied and checked to see if it divides by 3 or 5. If it does <code class="highlighter-rouge">Fizz</code> or <code class="highlighter-rouge">Buzz</code> are returned. If divisible by both <code class="highlighter-rouge">FizzBuzz</code> is returned. If divisible by neither, the Number is converted to a string and returned.</p>
+</section>
+</article>
+
+<!-- Post navigation -->
+
+
+<!-- Disqus -->
+
+
+<!-- Muut -->
+
+    </div>
+    
+<script src="/js/katex_init.js"></script>
+
+
+
+<footer class="site-footer">
+	<p class="text">Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://rohanchandra.github.io/project/type/">Type Theme</a>
+</p>
+</footer>
+
+
+  </body>
+</html>

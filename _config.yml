@@ -5,10 +5,10 @@ url: "http://bjrhodes.github.io" # the base hostname & protocol for your site
 # THEME-SPECIFIC CONFIGURATION
 theme_settings:
   # Meta
-  title: Type Theme
+  title: Learning Code
   avatar: avatar.png
   gravatar: # Email MD5 hash
-  description: "A website with blog posts and pages" # used by search engines
+  description: "A little blog to hold teaching notes for my students." # used by search engines
 
   # Header and footer text
   header_text: >
@@ -19,7 +19,7 @@ theme_settings:
 
   # Icons
   rss: false
-  email_address: "barry@mymedialab.co.uk"
+  email_address:
   behance:
   bitbucket:
   dribbble:

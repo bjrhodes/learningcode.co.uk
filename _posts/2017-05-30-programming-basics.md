@@ -6,11 +6,15 @@ title: Programming Basics - variables, operators and functions
 
 A statement on a program is simply a piece of code that causes an action. Usually, a statement is a line of code. For example:
 
+    {% highlight javascript %}
     console.log('Some message');
+    {% endhighlight %}
 
 Causes "Some message" to be logged to the console. Or
 
+    {% highlight javascript %}
     x = y + 5;
+    {% endhighlight %}
 
 Will cause a "variable" `x` to have a value equal to the variable `y` plus 5.
 
@@ -20,36 +24,36 @@ Programming then, is simply the act of putting statements together in such an or
 
 When developing a program, the programmer is often simply shuffling data around from one form to another. It is therefore convenient to have a way of storing and representing data inside the program. This is achieved using "variables". A variable is simply a label, any label, given to a piece of data you're working with. For example if a programmer wanted to write a simple statement to output a persoinalised greeting, it might look something like this:
 
-
+    {% highlight javascript %}
     var name = 'Mr McBlokeFace';
     console.log("Hello " + name);
-
+    {% endhighlight %}
 
 The variable `username` is simply a label to hold the data. The program would work the same if it were written:
 
-
+    {% highlight javascript %}
     var person = 'Mr McBlokeFace';
     console.log("Hello " + person);
-
+    {% endhighlight %}
 
 or
 
-
+    {% highlight javascript %}
     var x = 'Mr McBlokeFace';
     console.log("Hello " + x);
-
+    {% endhighlight %}
 
 However, it is always preferable to use a name which expresses your intent to the programmers who will work with your code after you are finished.
 
 In Javascript, variables must be declared before they can be used. This is achieved using the special language keyword `var` as in the example above. You can assign and declare a variable at the same time, or you can simply declare an empty variable for future use. For example:
 
-
+    {% highlight javascript %}
     // declare only
     var username;
 
     // declare and assign
     var username = "Some username";
-
+    {% endhighlight %}
 
 Variables are assigned values using the `=` operator, as in `x = 5` or `name = 'Barry'` or `newThing = oldThing`.
 
@@ -136,24 +140,28 @@ When declaring a function, you can consider it as a contract between the functio
 
 Declaring functions can be done in a few ways in javascript, but the most common are the following two:
 
+    {% highlight javascript %}
     function addNumbers(x, y) {
         return x + y;
     }
     var addNumbers = function(x, y) {
         return x + y;
     };
+    {% endhighlight %}
 
 
 Both of the above are identical in use. Both declare a function named `addNumbers` and both have two "parameters" that they will accept: `x` and `y`. Of note is the special language keyword `return` which is used to send data back to the caller on completion of the function. This not only returns that value, but also signals the end of the function, so any statements after the return will not be executed.
 
 As with variables, the names can be anything you desire, but should be easy to understand for future programmers. The naming of functions and their parts looks like this:
 
+    {% highlight javascript %}
     function someNameYouInvent(parameter, parameter) {
         statement;
         statement;
         statement;
         return statement or return value;
     }
+    {% endhighlight %}
 
 The `function` keyword is there to tell the computer that you are defining a function here, the name is used to refer to that function later on, and the parameters are used to pass data into the function when called. When you're writing the function, you don't know yet exactly what the data will be, but you can add comments to your code to indicate the type of data you expect, or make it clear through the functions name (in the example case, we expect Numbers).
 
@@ -163,8 +171,10 @@ To muddy the waters, javascript also allows "anonymous" functions which have no 
 
 Once you have declared a function, you will want to "invoke" it. This means, call it and use it. To invoke the above function I would write `addNumbers(13, 5)` which would yield `18`; I could also write:
 
+    {% highlight javascript %}
     var x = 13;
     var y = 5;
     addNumbers(x, y);
+    {% endhighlight %}
 
 and achieve the same result, as the variable values will be passed in to the function.
