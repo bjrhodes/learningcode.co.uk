@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>Objects and Methods | Learning Code</title>
+	<meta name="description" content="Introduction">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-Frame-Options" content="sameorigin">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="http://localhost:4000/2017/06/19/objects-and-methods.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="Learning Code" href="http://localhost:4000/feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+	
+
+	<!-- Google Analytics -->
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<a href="/">
+			<img class="avatar" src="/img/avatar.png" alt=""/>
+		</a>
+		
+		<h1 class="site-title">
+			<a href="/">Learning Code</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/about/">
+					About
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			<!-- Social icons from Font Awesome, if enabled -->
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/bjrhodes/bjrhodes.github.io" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://twitter.com/beejrhodes" title="Follow on Twitter">
+		<i class="fa fa-fw fa-twitter"></i>
+	</a>
+</li>
+
+
+
+
+
+
+		</ul>
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('/')">
+    <h1 class="title">Objects and Methods</h1>
+    <p class="meta">
+    June 19, 2017
+    
+    </p>
+  </header>
+  <section class="post-content"><h3 id="introduction">Introduction</h3>
+
+<p>We’ve covered types of variables in the Programming Basics post, and we’ve covered functions in the same post. We’re now going to lightly touch on a slightly more advanced topic, which is heavily used in javascript: objects. There will be a lot more on object-oriented programming in future posts, but for now we’re going to cover a few basics, as these are unavoidable in JS.</p>
+
+<h3 id="why-objects-matter-in-javascript">Why objects matter in Javascript</h3>
+
+<p>During the design of JS as a language, the decision was made that everything in the language will be represented in memory as an object. Even a simple boolean value such as <code class="highlighter-rouge">var x = true;</code> will create a new object in memory. Up until now, this has been an irrelevant implementation detail, but as we start trying to solve a few problems we’ll need to understand a bit about what this decision provides us with.</p>
+
+<h3 id="objects">Objects</h3>
+
+<p>At the simplest level, an object is simply an unordered map of arbitrary keys storing arbitrary values. For example</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">myObj</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">thing</span><span class="p">:</span> <span class="s1">'This thing'</span><span class="p">,</span>
+        <span class="na">wotsit</span><span class="p">:</span> <span class="s1">'Something else'</span>
+    <span class="p">};</span>
+    </code></pre></figure>
+
+<p>This object has two <em>properties</em>, set using a key and a value. A property key must always be a valid string, but the value can be anything of any type (including other objects). In this object, each value is also a string. Once an object is defined, you can access it’s properties using a dot. For example, to access the value of <code class="highlighter-rouge">wotsit</code> on the above object <code class="highlighter-rouge">myObj</code> you would use <code class="highlighter-rouge">myObj.wotsit</code>, which will return you <code class="highlighter-rouge">"something else"</code>.</p>
+
+<p>You can also add new arbitrary keys to an object. With the above object, we would add a new property like this: <code class="highlighter-rouge">myObj.newKey = 'new value'</code>. This would result in the previous object now being defined in memory like this:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="p">{</span>
+        <span class="nl">thing</span><span class="p">:</span> <span class="s1">'This thing'</span><span class="p">,</span>
+        <span class="nx">wotsit</span><span class="err">:</span> <span class="s1">'Something else'</span><span class="p">,</span>
+        <span class="nx">newKey</span><span class="err">:</span> <span class="s1">'new value'</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+<p>“Plain” objects like this example are very useful for storing information. For example, in the real world, you may have a basket full of items, and each item can be stored as an object that looks a bit like this:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="p">{</span>
+        <span class="nl">description</span><span class="p">:</span> <span class="s2">"iPhone 7 - Jet Black"</span><span class="p">,</span>
+        <span class="nx">sku</span><span class="err">:</span> <span class="s2">"i7jb"</span><span class="p">,</span>
+        <span class="nx">qty</span><span class="err">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nx">cost</span><span class="err">:</span> <span class="mi">700</span><span class="p">,</span>
+        <span class="nx">weight</span><span class="err">:</span> <span class="mi">250</span><span class="p">,</span>
+        <span class="nx">dimensions</span><span class="err">:</span> <span class="p">{</span>
+            <span class="nl">width</span><span class="p">:</span> <span class="mf">7.5</span><span class="p">,</span>
+            <span class="nx">height</span><span class="err">:</span> <span class="mi">15</span><span class="p">,</span>
+            <span class="nx">depth</span><span class="err">:</span> <span class="mi">8</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+<h3 id="methods">Methods</h3>
+
+<p>As well as storing boring old data, object can contain functions. When a function is attached to an object, it is often referred to as a “method” of that object. These methods can do anything you’d like them to, but due to some complexities of the language, defining methods is a topic for another day.</p>
+
+<p>We will be talking about use of existing methods though, and one key area of this is in The DOM. Up til now, we’ve been using javascript in isolation, but when you start integrating your JS into a webpage, you’ll need to do a fair bit of working with the DOM, or Document Object Model. This is the browsers representation of your HTML, and DOM methods are the key to interacting with users.</p>
+
+<p>When you load a webpage, the browser sets up a few <code class="highlighter-rouge">global</code> objects you can use. A useful one is <code class="highlighter-rouge">document</code>, which is the browsers entry point into the DOM. You can call <code class="highlighter-rouge">document</code> methods to fetch elements, read information about the page or setup <code class="highlighter-rouge">listeners</code> to hook into user events.</p>
+
+<p>It is also worth knowing that the javascript built-in types often have a bunch of pre-defined methods attached, which can make your life very easy. Learning these methods by heart is not something I’d expect you to do, however it is very useful to know roughly what they can do, so that when you need one, you can search for it’s exact name and usage.</p>
+
+<h3 id="using-methods">Using Methods</h3>
+
+<p>Methods are called like any other functions in javascript, you invoke them by passing zero or more parameters in parentheses like this <code class="highlighter-rouge">myObj.someMethod()</code> or <code class="highlighter-rouge">myObj.otherMethod(param, paramTwo)</code>. The difference between methods and plain functions is that usually the method operates on the value it is attached to, rather than taking in a parameter to work with.</p>
+
+<h3 id="method-examples">Method examples</h3>
+
+<h4 id="string-methods">String methods</h4>
+
+<p><em>.toLowerCase() example</em></p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"This is MY StrinG."</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">newStr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+    </code></pre></figure>
+
+<p><em>result</em></p>
+
+<p>In the above code, the toLowerCase() method makes a <em>copy</em> of the string it is called on, and returns that converted all to lower case characters. So the result of this code is that str still contains <code class="highlighter-rouge">"This is MY StrinG."</code> and newStr contains <code class="highlighter-rouge">"this is my string."</code>.</p>
+
+<p><em>.slice() example</em></p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"This is another string."</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">cutOutBit</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+    </code></pre></figure>
+
+<p><em>result</em></p>
+
+<p>The slice method takes two parameters, a start index and an end index. It then slices that chunk out of a copy of the string. The result of this will be that <code class="highlighter-rouge">cutOutBit</code> contains <code class="highlighter-rouge">"is "</code> but <code class="highlighter-rouge">str</code> will be unaffected.</p>
+
+<h4 id="methods-on-the-dom">Methods on The DOM.</h4>
+
+<p><em>.getElementbyId()</em></p>
+
+<p>A very useful method, you can use this to fetch an <code class="highlighter-rouge">element</code> from a document. Given a DOM fragment that looks like this:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"some-thing"</span><span class="nt">&gt;&lt;p&gt;</span>I'm a paragraph in a div!<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
+    </code></pre></figure>
+
+<p>You can use <code class="highlighter-rouge">document.getElementById('some-thing')</code> to get a reference to that div. For example:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">someDiv</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'some-thing'</span><span class="p">);</span>
+    <span class="nx">someDiv</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">"red"</span><span class="p">;</span>
+    </code></pre></figure>
+
+<p>The above code will set the colour of text inside the div to red.</p>
+</section>
+</article>
+
+<!-- Post navigation -->
+
+
+<!-- Disqus -->
+
+
+<!-- Muut -->
+
+    </div>
+    
+<script src="/js/katex_init.js"></script>
+
+
+
+<footer class="site-footer">
+	<p class="text">Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://rohanchandra.github.io/project/type/">Type Theme</a>
+</p>
+</footer>
+
+
+  </body>
+</html>

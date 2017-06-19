@@ -5,7 +5,114 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
     <link>http://localhost:4000/</link>
     <description></description>
-    <pubDate>Sun, 11 Jun 2017 21:51:54 +0100</pubDate>
+    <pubDate>Mon, 19 Jun 2017 11:52:25 +0100</pubDate>
+    
+      <item>
+        <title>Objects and Methods</title>
+        <link>http://localhost:4000/2017/06/19/objects-and-methods.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/06/19/objects-and-methods.html</guid>
+        <description>&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;We’ve covered types of variables in the Programming Basics post, and we’ve covered functions in the same post. We’re now going to lightly touch on a slightly more advanced topic, which is heavily used in javascript: objects. There will be a lot more on object-oriented programming in future posts, but for now we’re going to cover a few basics, as these are unavoidable in JS.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-objects-matter-in-javascript&quot;&gt;Why objects matter in Javascript&lt;/h3&gt;
+
+&lt;p&gt;During the design of JS as a language, the decision was made that everything in the language will be represented in memory as an object. Even a simple boolean value such as &lt;code class=&quot;highlighter-rouge&quot;&gt;var x = true;&lt;/code&gt; will create a new object in memory. Up until now, this has been an irrelevant implementation detail, but as we start trying to solve a few problems we’ll need to understand a bit about what this decision provides us with.&lt;/p&gt;
+
+&lt;h3 id=&quot;objects&quot;&gt;Objects&lt;/h3&gt;
+
+&lt;p&gt;At the simplest level, an object is simply an unordered map of arbitrary keys storing arbitrary values. For example&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myObj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;thing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'This thing'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;wotsit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Something else'&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This object has two &lt;em&gt;properties&lt;/em&gt;, set using a key and a value. A property key must always be a valid string, but the value can be anything of any type (including other objects). In this object, each value is also a string. Once an object is defined, you can access it’s properties using a dot. For example, to access the value of &lt;code class=&quot;highlighter-rouge&quot;&gt;wotsit&lt;/code&gt; on the above object &lt;code class=&quot;highlighter-rouge&quot;&gt;myObj&lt;/code&gt; you would use &lt;code class=&quot;highlighter-rouge&quot;&gt;myObj.wotsit&lt;/code&gt;, which will return you &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;something else&quot;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can also add new arbitrary keys to an object. With the above object, we would add a new property like this: &lt;code class=&quot;highlighter-rouge&quot;&gt;myObj.newKey = 'new value'&lt;/code&gt;. This would result in the previous object now being defined in memory like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;thing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'This thing'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;wotsit&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Something else'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;newKey&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'new value'&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;“Plain” objects like this example are very useful for storing information. For example, in the real world, you may have a basket full of items, and each item can be stored as an object that looks a bit like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;iPhone 7 - Jet Black&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;sku&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;i7jb&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;qty&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;cost&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;700&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;weight&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;250&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;dimensions&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;7.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;depth&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;methods&quot;&gt;Methods&lt;/h3&gt;
+
+&lt;p&gt;As well as storing boring old data, object can contain functions. When a function is attached to an object, it is often referred to as a “method” of that object. These methods can do anything you’d like them to, but due to some complexities of the language, defining methods is a topic for another day.&lt;/p&gt;
+
+&lt;p&gt;We will be talking about use of existing methods though, and one key area of this is in The DOM. Up til now, we’ve been using javascript in isolation, but when you start integrating your JS into a webpage, you’ll need to do a fair bit of working with the DOM, or Document Object Model. This is the browsers representation of your HTML, and DOM methods are the key to interacting with users.&lt;/p&gt;
+
+&lt;p&gt;When you load a webpage, the browser sets up a few &lt;code class=&quot;highlighter-rouge&quot;&gt;global&lt;/code&gt; objects you can use. A useful one is &lt;code class=&quot;highlighter-rouge&quot;&gt;document&lt;/code&gt;, which is the browsers entry point into the DOM. You can call &lt;code class=&quot;highlighter-rouge&quot;&gt;document&lt;/code&gt; methods to fetch elements, read information about the page or setup &lt;code class=&quot;highlighter-rouge&quot;&gt;listeners&lt;/code&gt; to hook into user events.&lt;/p&gt;
+
+&lt;p&gt;It is also worth knowing that the javascript built-in types often have a bunch of pre-defined methods attached, which can make your life very easy. Learning these methods by heart is not something I’d expect you to do, however it is very useful to know roughly what they can do, so that when you need one, you can search for it’s exact name and usage.&lt;/p&gt;
+
+&lt;h3 id=&quot;using-methods&quot;&gt;Using Methods&lt;/h3&gt;
+
+&lt;p&gt;Methods are called like any other functions in javascript, you invoke them by passing zero or more parameters in parentheses like this &lt;code class=&quot;highlighter-rouge&quot;&gt;myObj.someMethod()&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;myObj.otherMethod(param, paramTwo)&lt;/code&gt;. The difference between methods and plain functions is that usually the method operates on the value it is attached to, rather than taking in a parameter to work with.&lt;/p&gt;
+
+&lt;h3 id=&quot;method-examples&quot;&gt;Method examples&lt;/h3&gt;
+
+&lt;h4 id=&quot;string-methods&quot;&gt;String methods&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;.toLowerCase() example&lt;/em&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;This is MY StrinG.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;newStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toLowerCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;result&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;In the above code, the toLowerCase() method makes a &lt;em&gt;copy&lt;/em&gt; of the string it is called on, and returns that converted all to lower case characters. So the result of this code is that str still contains &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;This is MY StrinG.&quot;&lt;/code&gt; and newStr contains &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;this is my string.&quot;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;.slice() example&lt;/em&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;This is another string.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cutOutBit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;result&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The slice method takes two parameters, a start index and an end index. It then slices that chunk out of a copy of the string. The result of this will be that &lt;code class=&quot;highlighter-rouge&quot;&gt;cutOutBit&lt;/code&gt; contains &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;is &quot;&lt;/code&gt; but &lt;code class=&quot;highlighter-rouge&quot;&gt;str&lt;/code&gt; will be unaffected.&lt;/p&gt;
+
+&lt;h4 id=&quot;methods-on-the-dom&quot;&gt;Methods on The DOM.&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;.getElementbyId()&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;A very useful method, you can use this to fetch an &lt;code class=&quot;highlighter-rouge&quot;&gt;element&lt;/code&gt; from a document. Given a DOM fragment that looks like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;some-thing&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&amp;gt;&lt;/span&gt;I'm a paragraph in a div!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;You can use &lt;code class=&quot;highlighter-rouge&quot;&gt;document.getElementById('some-thing')&lt;/code&gt; to get a reference to that div. For example:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;someDiv&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'some-thing'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;someDiv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;red&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The above code will set the colour of text inside the div to red.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 19 Jun 2017 00:00:00 +0100</pubDate>
+      </item>
     
       <item>
         <title>If / Else</title>
