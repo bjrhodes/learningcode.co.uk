@@ -5,7 +5,101 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
     <link>http://localhost:4000/</link>
     <description></description>
-    <pubDate>Mon, 19 Jun 2017 11:52:25 +0100</pubDate>
+    <pubDate>Tue, 27 Jun 2017 10:17:53 +0100</pubDate>
+    
+      <item>
+        <title>Arrays</title>
+        <link>http://localhost:4000/2017/06/27/arrays.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/06/27/arrays.html</guid>
+        <description>&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Arrays are a dead handy language feature in Javascript. They are simply a list of things, of any type. They are similar to objects, which we cam across last week, but they don’t have named keys. Instead they are &lt;em&gt;indexed&lt;/em&gt;; each thing in the array is numbered, starting from zero.&lt;/p&gt;
+
+&lt;p&gt;An example of some arrays are:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var someStrings = [&quot;This string&quot;, &quot;That string&quot;, &quot;The other string&quot;];
+var someNumbers = [15, 9128476, 2442, 30, 463, 123, -10, 24, 56, 41, 52, 34, 64, 12];
+var aMixedListOfStuff = [
+    &quot;a string&quot;,
+    [&quot;nested&quot;, &quot;array&quot;, &quot;of&quot;, &quot;strings&quot;],
+    123,
+    {wow: &quot;An object!&quot;},
+    function() {
+        return &quot;What is this!? A FUNCTION! IN an ARRAY! Madness!&quot;
+    }
+];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As you can see from the examples, an array in Javascript can be a list of anything of any type. Even mixed types. It is unusual to mix types though, and is usually best avoided. Arrays are most powerful when they contain a list of similar things that you can perform the same operation on repeatedly.&lt;/p&gt;
+
+&lt;p&gt;The language gives you a few handy features with an array. Firstly, you can always read its length using &lt;code class=&quot;highlighter-rouge&quot;&gt;.length&lt;/code&gt;. For example:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;someStrings.length; // is 3
+someNumbers.length; // is 14
+aMixedListOfStuff.length; // is 5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You can always access an element by its index as well, and you do this using square brackets like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;someStrings[0]; // is &quot;This string&quot; because array indexing starts at zero.
+someStrings[2]; // is &quot;The other string&quot;
+someNumbers[5]; // 123
+aMixedListOfStuff[0]; // &quot;a string&quot;
+aMixedListOfStuff[1]; // [&quot;nested&quot;, &quot;array&quot;, &quot;of&quot;, &quot;strings&quot;]
+aMixedListOfStuff[1][3]; // &quot;strings&quot; - get the element at index 3 from the array at index 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As well as these builtins, you can use various standard methods for accessing and using arrays. Some of the commonest are &lt;code class=&quot;highlighter-rouge&quot;&gt;push()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;pop()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;unshift()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;shift()&lt;/code&gt;. Other handy ones are &lt;code class=&quot;highlighter-rouge&quot;&gt;forEach()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;some()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;indexOf()&lt;/code&gt;. You can find a big list of these at the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array&quot;&gt;MDN page on arrays&lt;/a&gt; and you should go read that page.&lt;/p&gt;
+
+&lt;h4 id=&quot;a-more-in-depth-example&quot;&gt;A more in depth example&lt;/h4&gt;
+
+&lt;p&gt;So, putting it all together, here’s a “real world”(ish) example of using an array in a bit of code managing a shopping basket.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function getTotal(items) {
+    // start the total as zero
+    var total = 0;
+
+    // first check we actually have an array
+    if (!(items instanceof Array)) {
+        throw new Error(&quot;getTotal requires an array. &quot; + typeof(items) + &quot; given instead.&quot;);
+    }
+
+    // Now loop through the array items.
+    items.forEach(function(item, index) {
+        if (typeof(item.cost) !== 'number' || typeof(item.qty) !== 'number') {
+            // Make sure each item is a valid item.
+            throw new Error(&quot;getTotal requires an array of valid items. Item &quot; + index + &quot; appears to be invalid.&quot;);
+        }
+
+        // Add the cost onto the total for each item.
+        total += (item.cost * item.qty);
+    });
+
+    return total;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In this example, we’d pass in something like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var basketItems = [
+    {desc: &quot;Electric pencil sharpener&quot;, qty: 1, cost: 10.00},
+    {desc: &quot;HB Pencil&quot;, qty: 10, cost: 0.50},
+    {desc: &quot;2B Pencil&quot;, qty: 2, cost: 1.00},
+    {desc: &quot;Pencil Eraser&quot;, qty: 2, cost: 1.50}
+];
+
+var total = getTotal(basketItems); // total returned is 20.00
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The array os passed into the function which loops over all the items and extracts the information it needs from each one, incresing the total as it goes. (The objects in the array can contain any extra keys, so long as the qty and cost are always numbers. In this example &lt;code class=&quot;highlighter-rouge&quot;&gt;desc&lt;/code&gt; is just ignored by the function.)&lt;/p&gt;
+</description>
+        <pubDate>Tue, 27 Jun 2017 00:00:00 +0100</pubDate>
+      </item>
     
       <item>
         <title>Objects and Methods</title>
