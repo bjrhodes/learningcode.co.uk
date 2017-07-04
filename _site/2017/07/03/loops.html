@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>Loops | Learning Code</title>
+	<meta name="description" content="Introduction">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-Frame-Options" content="sameorigin">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="http://localhost:4000/2017/07/03/loops.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="Learning Code" href="http://localhost:4000/feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+	
+
+	<!-- Google Analytics -->
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<a href="/">
+			<img class="avatar" src="/img/avatar.png" alt=""/>
+		</a>
+		
+		<h1 class="site-title">
+			<a href="/">Learning Code</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/about/">
+					About
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			<!-- Social icons from Font Awesome, if enabled -->
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/bjrhodes/bjrhodes.github.io" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://twitter.com/beejrhodes" title="Follow on Twitter">
+		<i class="fa fa-fw fa-twitter"></i>
+	</a>
+</li>
+
+
+
+
+
+
+		</ul>
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('/')">
+    <h1 class="title">Loops</h1>
+    <p class="meta">
+    July 3, 2017
+    
+    </p>
+  </header>
+  <section class="post-content"><h2 id="introduction">Introduction</h2>
+
+<p>Loops are the last of the major language features in Javascript that we’ll be covering. Now that we’ve grasped statements, variables and their types, functions, arrays and objects this last piece will give us eveything we need to solve procedural problems.</p>
+
+<p>As always, MDN’s documentation is very good: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration</a></p>
+
+<p>I’ve tried to give a “whys” outline below, where MDN offer more of a “how”. So it is worth reading both.</p>
+
+<h2 id="why-loop">Why Loop?</h2>
+
+<p>On the web, we write programs and applications to solve a problem or achieve a goal. Most of these programs eventually come down to shovelling data about in some form or another. We may need to capture someones information to deliver a product, or sell to an advertiser. Or we may need to take user input so that we may determine which of our hilarious cat videos will best suit their taste.</p>
+
+<p>Dealing with this data often involves running similar tasks repeatedly, and a loop gives us an easy way of managing that.</p>
+
+<h2 id="types-of-loop">Types of loop</h2>
+
+<p>There are a few different types of loop in Javascript. Most looping problems can be solved with any of these, but occasionally one is better suited than the rest.</p>
+
+<h3 id="for-loop"><code class="highlighter-rouge">for</code> loop</h3>
+
+<p>This is a very common type of loop, used to carry out an action for a pre-determined amount of iterations. The syntax for a for loop looks like this:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="k">for</span> <span class="p">(</span><span class="nx">initialExpression</span><span class="p">;</span> <span class="nx">condition</span><span class="p">;</span> <span class="nx">incrementExpression</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">statements</span><span class="p">;</span>
+        <span class="nx">statements</span><span class="p">;</span>
+        <span class="nx">statements</span><span class="p">;</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+<p>The loop sets up with it’s initialExpression. Once done it checks the condition and if the condition is <code class="highlighter-rouge">true</code> it executes the block of statements. Finally it runs the incrememntExpression. From here, the condition is checked again, and the loop repeats from there:</p>
+
+<ul>
+  <li><em>Setup</em></li>
+  <li>Check condition is true. If not, skip statements and move on.</li>
+  <li>If true execute statements</li>
+  <li>Execute incrementExpression</li>
+  <li>Check condition is true. If not, skip statements and move on.</li>
+  <li>If true execute statements</li>
+  <li>Execute incrementExpression</li>
+  <li>Check condition is true. If not, skip statements and move on.</li>
+  <li>If true execute statements</li>
+  <li>Execute incrementExpression</li>
+  <li>Check condition is true. If not, skip statements and move on.</li>
+  <li>If true execute statements</li>
+  <li>Execute incrementExpression</li>
+  <li>… etc.</li>
+</ul>
+
+<p>For example, you may have a list of messages, and want to display the first three. You can use a for loop to append those to a page like this:</p>
+
+<h5 id="example-one">Example one</h5>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">myApi</span><span class="p">.</span><span class="nx">getMessages</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">messages</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">newItem</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'totally-real-list'</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">messages</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">n</span> <span class="o">=</span> <span class="nx">messages</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">newItem</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'li'</span><span class="p">);</span>
+            <span class="nx">newItem</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">messages</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+            <span class="nx">list</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">newItem</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    </code></pre></figure>
+
+<p>In this example we fetch some messages from a fictional API and then pass them into a function. That function sets up a few supporting variables, checks it has enough messages to display three of them and then loops through messages 0, 1 and 2 and appends them to a list.</p>
+
+<p>The for loop is comprised of the four parts discussed previously:</p>
+
+<ul>
+  <li>The initial expression: in this example <code class="highlighter-rouge">i = 0</code> which initialises an index (<code class="highlighter-rouge">i</code>) as zero.</li>
+  <li>The condition: That <code class="highlighter-rouge">i</code> must be less than <code class="highlighter-rouge">n</code>. (In this case, n is determined previously to be either 3, or the number of messages, if less than three.)</li>
+  <li>The incrememnt expression: <code class="highlighter-rouge">i++</code> which adds one to the index.</li>
+  <li>The statements: which in this example, involve creating and adding list <items class=""></items></li>
+</ul>
+
+<h3 id="while-loop"><code class="highlighter-rouge">While</code> Loop</h3>
+
+<p>Another common loop type is the while loop. This is simpler in syntax, but can cause critical issues if not managed properly (see below). If a different loop type can be used, I would usually recommend it.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="k">while</span> <span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">statements</span><span class="p">;</span>
+        <span class="nx">statements</span><span class="p">;</span>
+        <span class="nx">statements</span><span class="p">;</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+<p>The while loop will keep executing as long as the condition is true. This is useful, for example, in animations when you’d like to keep something moving until it hits an edge or goes offscreen etc. This change-over-time can be hard to pre-determine (as we did for our for loop) and so it suits a while loop:</p>
+
+<h5 id="example-two">Example two</h5>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">function</span> <span class="nx">isOnScreen</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">bounds</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">();</span>
+        <span class="k">return</span> <span class="nx">bounds</span><span class="p">.</span><span class="nx">top</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">bounds</span><span class="p">.</span><span class="nx">bottom</span> <span class="o">&lt;</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'that-element-i-want'</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">isOnScreen</span><span class="p">(</span><span class="nx">element</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">element</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span> <span class="o">-</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+<p>In this example, we keep pushing the element toward the top of the screen until it goes offscreen. Loops like this can easily fail critically though. Should the calculations behind the offscreen check be a bit buggy, or should the element fail to move when you adjust its <code class="highlighter-rouge">top</code> position this loop will <strong>never stop running</strong>. This will crash your browser tab and give you a <em>very bad day®</em>.</p>
+
+<p>The simple example below demonstrates the pitfalls. In this example, we fetch a numeric value from a user and use it to skim through a list <code class="highlighter-rouge">step</code> items at a time (eg 5 or 3 or 1 items at a time). However, if the user enters a 0, or a negative numner, or anything NOT a number, <code class="highlighter-rouge">i</code> won’t increase and the condition will never be satisfied, making the loop infinite and crashing your website.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">step</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'some-input'</span><span class="p">).</span><span class="nx">value</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">list</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// do stuff</span>
+        <span class="nx">i</span> <span class="o">+=</span> <span class="nx">step</span><span class="p">;</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+<p>This example would be an obvious mistake, but the concept applies to a broad range of issues. When using while loops, be sure to thoroughly check your incrementing process.</p>
+
+<h4 id="do--while-loops"><code class="highlighter-rouge">do / while</code> loops</h4>
+
+<p>Similar to while loops, and the same pitfalls apply. This loop is subtly different in that it will <em>always</em> execute at least once. A regular while loop checks its condition before running, so may never run at all. Do / while loops check at the end, and so always execute at least once.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="k">do</span> <span class="p">{</span>
+        <span class="nx">statements</span><span class="p">;</span>
+        <span class="nx">statements</span><span class="p">;</span>
+        <span class="nx">statements</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">condition</span><span class="p">)</span>
+    </code></pre></figure>
+
+<h3 id="array-methods">Array methods</h3>
+
+<p>As well as pure loops, several array methods also loop. These include <code class="highlighter-rouge">forEach</code>, <code class="highlighter-rouge">some</code>, <code class="highlighter-rouge">map</code> and <code class="highlighter-rouge">reduce</code> amongst others. These are usually much safer alternatives to for or while loops, and should be preferred where they are available.</p>
+
+<h2 id="escaping-the-loop">Escaping the loop</h2>
+
+<p>Sometimes a special case may cause you to need to exit a loop. When this happens you can either <code class="highlighter-rouge">break</code> out of the loop, which will stop it there an d then, or you can <code class="highlighter-rouge">continue</code> on to the next item in the loop. This skips the rest of the statement block for that item, but lets the loop continue.</p>
+
+<p>For example you may wish to email out to all users, but skip site admins.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">users</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">isAdmin</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Don't do this if the user is admin</span>
+            <span class="k">continue</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nx">sendEmailTo</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">emailAddress</span><span class="p">);</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+<p>Or, you may wish to stop a test if you have too many incorrect answers</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">passed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">failed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">questions</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">attempt</span> <span class="o">=</span> <span class="nx">questions</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">isCorrect</span><span class="p">(</span><span class="nx">attempt</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">passed</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">failed</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">failed</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+<h2 id="more-advanced-note-on-good-practices-when-writing-loops">More advanced note on good practices when writing loops</h2>
+
+<p>Because a loop runs many times, it is good practice to only put in it that which needs to be in it. In Example one we need to get a list from the DOM, we could do this like this:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">newItem</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'li'</span><span class="p">);</span>
+        <span class="nx">newItem</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">messages</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'totally-real-list'</span><span class="p">).</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">newItem</span><span class="p">);</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+<p>but did not. This is because getting that element from the DOM is computationally “expensive”. We need to send the browser off to browse the DOM tree, find the correct node, grab a reference and return it to us, all of which takes time. By doing things as we did, we only need to perform that lookup once.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'totally-real-list'</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">newItem</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'li'</span><span class="p">);</span>
+        <span class="nx">newItem</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">messages</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="nx">list</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">newItem</span><span class="p">);</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+<p><em>A warning.</em> Usually in programming pre-optimisation is frowned upon, and rightly so. Computers are so fast, and interpreters so good at optimising code, that trying to speed things up using clever tricks often just leads to ugly, unreadable code. Loops are the exception to this rule, especially loops in a webpage, where a lot of costly actions can be triggered in a line or two of code.</p>
+
+<p>Especially avoid DOM manipulation and HTTP requests in loops and keep your loops lean and fast.</p>
+</section>
+</article>
+
+<!-- Post navigation -->
+
+
+<!-- Disqus -->
+
+
+<!-- Muut -->
+
+    </div>
+    
+<script src="/js/katex_init.js"></script>
+
+
+
+<footer class="site-footer">
+	<p class="text">Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://rohanchandra.github.io/project/type/">Type Theme</a>
+</p>
+</footer>
+
+
+  </body>
+</html>
